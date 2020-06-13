@@ -1,0 +1,15 @@
+/**
+ * @typedef {Object} BuyData
+ *
+ * @property {boolean} local
+ * Indicating whether the turnips were purchased locally.
+ *
+ * @property {string} [label]
+ * String to mark where the turnips were purchased from.
+ *
+ * @property {number} price
+ * Buy price of the turnips (between 90 and 110, inclusive).
+ *
+ * @property {number} quantity
+ * The number of turnips purchased.
+ */

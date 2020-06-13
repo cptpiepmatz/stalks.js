@@ -1,0 +1,16 @@
+/**
+ * @typedef {Object} FriendWeekData
+ *
+ * @property {number} id
+ * The id of the friend.
+ *
+ * @property {string} username
+ * The username of the friend.
+ *
+ * @property {number[]} prices
+ * A list of prices for each slot.
+ * null values can be used for missing prices.
+ *
+ * @property {AdviceData} advice
+ * Advice for the friend.
+ */

@@ -1,0 +1,16 @@
+/**
+ * @typedef {Object} AdviceData
+ *
+ * @property {boolean} sell
+ * A boolean indicating if you should sell or hold.
+ *
+ * @property {string} advice
+ * Isabelle's friendly advice for your current situation.
+ *
+ * @property {PredictionData} prediction
+ * The projected forecasts for your stalk market.
+ *
+ * @property {Object.<string,number>} odds
+ * A dictionary consisting of price/odds mappings. Each key corresponds to a
+ * possible price, and the value is the likelihood that you'll hit that price.
+ */

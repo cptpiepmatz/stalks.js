@@ -1,0 +1,4 @@
+/**
+ * A date that can be either a Date or a string.
+ * @typedef {Date|string} DateResolvable
+ */

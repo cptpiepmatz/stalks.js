@@ -1,0 +1,12 @@
+/**
+ * @typedef {Object} SellData
+ *
+ * @property {number} price
+ * Sell price of the turnips.
+ *
+ * @property {number} quantity
+ * Number of turnips sold.
+ *
+ * @property {number} slots
+ * The number of slots were filled when the sale was made.
+ */

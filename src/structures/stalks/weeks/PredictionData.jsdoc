@@ -1,0 +1,10 @@
+/**
+ * @typedef {Object} PredictionData
+ * The dictionaries contain the detected patterns, along with the price ranges
+ * that each pattern could hit in each slot. The range is defined as a list
+ * of tow prices, where the first is the lowest possible, and the second is the
+ * highest possible.
+ *
+ * @property {Object.<Object.<Array.<Array.<number,number>>>>} possible
+ * @property {Object.<Object.<Array.<Array.<number,number>>>>} likely
+ */
