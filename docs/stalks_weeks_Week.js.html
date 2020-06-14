@@ -1,10 +1,37 @@
-"use strict";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: stalks/weeks/Week.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: stalks/weeks/Week.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
 
 const Buy = require("./Buy");
 const Sell = require("./Sell");
 const Advice = require("./Advice");
 const FriendWeek = require("./FriendWeek");
-const isDefined = require("../../../util/isDefined");
 
 class Week {
   /**
@@ -12,13 +39,11 @@ class Week {
    * @param {DateResolvable} weekData.date - Use any DateResolvable for this.
    */
   constructor(weekData) {
-    if (isDefined(weekData.id)) {
-      /**
-       * The id of the week.
-       * @type {number}
-       */
-      this.id = weekData.id;
-    }
+    /**
+     * The id of the week.
+     * @type {number}
+     */
+    this.id = weekData.id;
 
     /**
      * The sunday that the week started on.
@@ -76,68 +101,56 @@ class Week {
      */
     this.prices = weekData.prices;
 
-    if (isDefined(weekData.manual_previous_pattern)) {
-      /**
-       * The pattern you had last week.
-       * @type {string}
-       */
-      this.manualPreviousPattern = weekData.manual_previous_pattern;
-    }
+    /**
+     * The pattern you had last week.
+     * @type {string}
+     */
+    this.manualPreviousPattern = weekData.manual_previous_pattern;
 
-    if (isDefined(weekData.previous_pattern)) {
-      /**
-       * Allows you to explicitly state what your pattern was last week. <br>
-       * Should be one of "big_spike", "small_spike", "triple", or "decreasing".
-       * @type {string}
-       * @readonly
-       */
-      this.previousPattern = weekData.previous_pattern;
-    }
+    /**
+     * Allows you to explicitly state what your pattern was last week. &lt;br>
+     * Should be one of "big_spike", "small_spike", "triple", or "decreasing".
+     * @type {string}
+     * @readonly
+     */
+    this.previousPattern = weekData.previous_pattern;
 
-    if (isDefined(weekData.profit)) {
-      /**
-       * Your calculated profit for the week.
-       * @type {number}
-       * @readonly
-       */
-      this.profit = weekData.profit;
-    }
+    /**
+     * Your calculated profit for the week.
+     * @type {number}
+     * @readonly
+     */
+    this.profit = weekData.profit;
 
-    if (isDefined(weekData.advice)) {
-      /**
-       * Contains all of your predictions and suggestions for the week,
-       * based on what you've entered.
-       * @type {Advice}
-       * @readonly
-       */
-      this.advice = new Advice({
-        sell: weekData.advice.sell,
-        advice: weekData.advice.advice,
-        prediction: weekData.advice.prediction,
-        odds: weekData.advice.odds
-      });
-    }
+    /**
+     * Contains all of your predictions and suggestions for the week,
+     * based on what you've entered.
+     * @type {Advice}
+     * @readonly
+     */
+    this.advice = new Advice({
+      sell: weekData.advice.sell,
+      advice: weekData.advice.advice,
+      prediction: weekData.advice.prediction,
+      odds: weekData.advice.odds
+    })
 
-    if (isDefined(weekData.friend_weeks)) {
-      let friendWeeks = [];
-      for (let friendWeekData of weekData.friend_weeks) {
-        friendWeeks.push(new FriendWeek(friendWeekData));
-      }
-      /**
-       * A list of all your friends that have entered data for the corresponding week.
-       * @type {FriendWeek[]}
-       */
-      this.friendWeeks = friendWeeks;
+    let friendWeeks = [];
+    for (let friendWeekData of weekData.friend_weeks) {
+      friendWeeks.push(new FriendWeek(friendWeekData));
     }
+    /**
+     * A list of all your friends that have entered data for the corresponding week.
+     * @type {FriendWeek[]}
+     */
+    this.friendWeeks = friendWeeks;
 
-    if (isDefined(weekData.version)) {
-      /**
-       * A sanity check that prevents an outdated frontend from overwriting newer data
-       * on the server.
-       * @type {number}
-       */
-      this.version = weekData.version;
-    }
+    /**
+     * A sanity check that prevents an outdated frontend from overwriting newer data
+     * on the server.
+     * @type {number}
+     */
+    this.version = weekData.version;
   }
 
   /**
@@ -145,6 +158,9 @@ class Week {
    * @returns {WeekData}
    */
   toJSON() {
+    function isDefined(value) {
+      return typeof value !== "undefined"
+    }
     let json = {};
 
     if (isDefined(this.id)) {
@@ -158,7 +174,7 @@ class Week {
     if (isDefined(this.buys)) {
       json.buys = [];
       for (let buy of this.buys) {
-        json.buys.push(JSON.parse(JSON.stringify(buy)));
+        json.buys.push(JSON.stringify(buy));
       }
     }
 
@@ -169,7 +185,7 @@ class Week {
     if (isDefined(this.sells)) {
       json.sells = [];
       for (let sell of this.sells) {
-        json.sells.push(JSON.parse(JSON.stringify(sell)));
+        json.sells.push(JSON.stringify(sell));
       }
     }
 
@@ -194,13 +210,13 @@ class Week {
     }
 
     if (isDefined(this.advice)) {
-      json.advice = JSON.parse(JSON.stringify(this.advice));
+      json.advice = JSON.stringify(this.advice);
     }
 
     if (isDefined(this.friendWeeks)) {
       json.friend_weeks = [];
       for (let friendWeek of this.friendWeeks) {
-        json.friend_weeks.push(JSON.parse(JSON.stringify(friendWeek)));
+        json.friend_weeks.push(JSON.stringify(friendWeek));
       }
     }
 
@@ -223,4 +239,26 @@ class Week {
   }
 }
 
-module.exports = Week;
+module.exports = Week;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Advice.html">Advice</a></li><li><a href="Buy.html">Buy</a></li><li><a href="FriendWeek.html">FriendWeek</a></li><li><a href="Sell.html">Sell</a></li><li><a href="Stalks.html">Stalks</a></li><li><a href="Week.html">Week</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Sun Jun 14 2020 12:46:46 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

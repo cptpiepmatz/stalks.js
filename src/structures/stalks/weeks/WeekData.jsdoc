@@ -1,7 +1,7 @@
 /**
  * @typedef {Object} WeekData
  *
- * @property {number} id
+ * @property {?number} id
  * The id of the week.
  *
  * @property {string} date
@@ -26,24 +26,24 @@
  * A list of prices for each slot.
  * null values can be used for missing prices.
  *
- * @property {string} previous_pattern
+ * @property {?string} previous_pattern
  * (read only) The pattern you had last week.
  *
- * @property {string} manual_previous_pattern
+ * @property {?string} manual_previous_pattern
  * Allows you to explicitly state what your pattern was last week. <br>
  * Should be one of "big_spike", "small_spike", "triple", or "decreasing".
  *
- * @property {number} profit
+ * @property {?number} profit
  * (read only) Your calculated profit for the week.
  *
- * @property {string} advice
+ * @property {?AdviceData} advice
  * (read only) Contains all of your predictions and suggestions for the week,
  * based on what you've entered.
  *
- * @property {FriendWeekData[]} friend_weeks
+ * @property {?FriendWeekData[]} friend_weeks
  * A list of all your friends that have entered data for the corresponding week.
  *
- * @property {number} version
+ * @property {?number} version
  * A sanity check that prevents an outdated frontend from overwriting newer data
  * on the server.
  */

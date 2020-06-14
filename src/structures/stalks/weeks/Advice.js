@@ -1,5 +1,7 @@
 "use strict";
 
+const isDefined = require("../../../util/isDefined");
+
 class Advice {
   /**
    * Represents an Advice.

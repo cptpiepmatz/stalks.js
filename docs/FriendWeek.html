@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Sell</title>
+    <title>JSDoc: Class: FriendWeek</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Sell</h1>
+    <h1 class="page-title">Class: FriendWeek</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Sell<span class="signature">(sellData)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>FriendWeek<span class="signature">(friendWeekData)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,16 +41,12 @@
     
 
     
-    <h4 class="name" id="Sell"><span class="type-signature"></span>new Sell<span class="signature">(sellData)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="FriendWeek"><span class="type-signature"></span>new FriendWeek<span class="signature">(friendWeekData)</span><span class="type-signature"></span></h4>
     
 
     
 
 
-
-<div class="description">
-    Represents a Sell.
-</div>
 
 
 
@@ -85,13 +81,13 @@
 
         <tr>
             
-                <td class="name"><code>sellData</code></td>
+                <td class="name"><code>friendWeekData</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#SellData">SellData</a></span>
+<span class="param-type"><a href="global.html#FriendWeekData">FriendWeekData</a></span>
 
 
             
@@ -101,7 +97,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">Week data of a friend.</td>
         </tr>
 
     
@@ -142,7 +138,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="structures_stalks_weeks_Sell.js.html">structures/stalks/weeks/Sell.js</a>, <a href="structures_stalks_weeks_Sell.js.html#line8">line 8</a>
+        <a href="structures_stalks_weeks_FriendWeek.js.html">structures/stalks/weeks/FriendWeek.js</a>, <a href="structures_stalks_weeks_FriendWeek.js.html#line9">line 9</a>
     </li></ul></dd>
     
 
@@ -192,13 +188,13 @@
 
         
             
-<h4 class="name" id="price"><span class="type-signature"></span>price<span class="type-signature"> :number</span></h4>
+<h4 class="name" id="advice"><span class="type-signature">(readonly) </span>advice<span class="type-signature"> :<a href="Advice.html">Advice</a></span></h4>
 
 
 
 
 <div class="description">
-    Sell price of the turnips.
+    Contains all of your predictions and suggestions for the week,based on what you've entered.
 </div>
 
 
@@ -207,7 +203,7 @@
     <ul>
         <li>
             
-<span class="param-type">number</span>
+<span class="param-type"><a href="Advice.html">Advice</a></span>
 
 
         </li>
@@ -246,7 +242,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="structures_stalks_weeks_Sell.js.html">structures/stalks/weeks/Sell.js</a>, <a href="structures_stalks_weeks_Sell.js.html#line13">line 13</a>
+        <a href="structures_stalks_weeks_FriendWeek.js.html">structures/stalks/weeks/FriendWeek.js</a>, <a href="structures_stalks_weeks_FriendWeek.js.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -264,13 +260,13 @@
 
         
             
-<h4 class="name" id="quantity"><span class="type-signature"></span>quantity<span class="type-signature"> :number</span></h4>
+<h4 class="name" id="id"><span class="type-signature"></span>id<span class="type-signature"> :number</span></h4>
 
 
 
 
 <div class="description">
-    Number of turnips sold.
+    The id of the friend.
 </div>
 
 
@@ -318,7 +314,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="structures_stalks_weeks_Sell.js.html">structures/stalks/weeks/Sell.js</a>, <a href="structures_stalks_weeks_Sell.js.html#line19">line 19</a>
+        <a href="structures_stalks_weeks_FriendWeek.js.html">structures/stalks/weeks/FriendWeek.js</a>, <a href="structures_stalks_weeks_FriendWeek.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -336,13 +332,13 @@
 
         
             
-<h4 class="name" id="slots"><span class="type-signature"></span>slots<span class="type-signature"> :number</span></h4>
+<h4 class="name" id="prices"><span class="type-signature"></span>prices<span class="type-signature"> :Array.&lt;number></span></h4>
 
 
 
 
 <div class="description">
-    The number of slots that were filled when the sale was made.
+    A list of prices for each slot.null values can be used for missing prices.
 </div>
 
 
@@ -351,7 +347,7 @@
     <ul>
         <li>
             
-<span class="param-type">number</span>
+<span class="param-type">Array.&lt;number></span>
 
 
         </li>
@@ -390,7 +386,79 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="structures_stalks_weeks_Sell.js.html">structures/stalks/weeks/Sell.js</a>, <a href="structures_stalks_weeks_Sell.js.html#line25">line 25</a>
+        <a href="structures_stalks_weeks_FriendWeek.js.html">structures/stalks/weeks/FriendWeek.js</a>, <a href="structures_stalks_weeks_FriendWeek.js.html#line27">line 27</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="username"><span class="type-signature"></span>username<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    The username of the friend.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="structures_stalks_weeks_FriendWeek.js.html">structures/stalks/weeks/FriendWeek.js</a>, <a href="structures_stalks_weeks_FriendWeek.js.html#line20">line 20</a>
     </li></ul></dd>
     
 

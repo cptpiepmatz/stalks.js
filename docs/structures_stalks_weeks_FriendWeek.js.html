@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: structures/stalks/weeks/FriendWeekData.jsdoc</title>
+    <title>JSDoc: Source: structures/stalks/weeks/FriendWeek.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: structures/stalks/weeks/FriendWeekData.jsdoc</h1>
+    <h1 class="page-title">Source: structures/stalks/weeks/FriendWeek.js</h1>
 
     
 
@@ -26,22 +26,50 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @typedef {Object} FriendWeekData
- *
- * @property {number} id
- * The id of the friend.
- *
- * @property {string} username
- * The username of the friend.
- *
- * @property {number[]} prices
- * A list of prices for each slot.
- * null values can be used for missing prices.
- *
- * @property {AdviceData} advice
- * Advice for the friend.
- */</code></pre>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+const Advice = require("./Advice");
+
+class FriendWeek {
+  /**
+   * @param {FriendWeekData} friendWeekData - Week data of a friend.
+   */
+  constructor(friendWeekData) {
+    /**
+     * The id of the friend.
+     * @type {number}
+     */
+    this.id = friendWeekData.id;
+
+    /**
+     * The username of the friend.
+     * @type {string}
+     */
+    this.username = friendWeekData.username;
+
+    /**
+     * A list of prices for each slot.
+     * null values can be used for missing prices.
+     * @type {number[]}
+     */
+    this.prices = friendWeekData.prices;
+
+    /**
+     * Contains all of your predictions and suggestions for the week,
+     * based on what you've entered.
+     * @type {Advice}
+     * @readonly
+     */
+    this.advice = new Advice({
+      sell: friendWeekData.advice.sell,
+      advice: friendWeekData.advice.advice,
+      prediction: friendWeekData.advice.prediction,
+      odds: friendWeekData.advice.odds
+    })
+  }
+}
+
+module.exports = FriendWeek;</code></pre>
         </article>
     </section>
 

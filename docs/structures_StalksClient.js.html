@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: structures/stalks/weeks/FriendWeekData.jsdoc</title>
+    <title>JSDoc: Source: structures/StalksClient.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: structures/stalks/weeks/FriendWeekData.jsdoc</h1>
+    <h1 class="page-title">Source: structures/StalksClient.js</h1>
 
     
 
@@ -26,22 +26,31 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @typedef {Object} FriendWeekData
- *
- * @property {number} id
- * The id of the friend.
- *
- * @property {string} username
- * The username of the friend.
- *
- * @property {number[]} prices
- * A list of prices for each slot.
- * null values can be used for missing prices.
- *
- * @property {AdviceData} advice
- * Advice for the friend.
- */</code></pre>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+const Stalks = require("./stalks/Stalks");
+
+class StalksClient {
+  /**
+   * The client to interact with the API.
+   * @param {string} token - Your auth token.
+   */
+  constructor(token) {
+    /**
+     * @type string
+     * @private
+     */
+    this._token = token;
+
+    /**
+     * Access to the Stalks part of the API.
+     * @type {Stalks}
+     */
+    this.stalks = new Stalks(token);
+  }
+}
+
+module.exports = StalksClient;</code></pre>
         </article>
     </section>
 

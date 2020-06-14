@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Advice.js</title>
+    <title>JSDoc: Source: FriendWeek.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Advice.js</h1>
+    <h1 class="page-title">Source: FriendWeek.js</h1>
 
     
 
@@ -28,40 +28,48 @@
         <article>
             <pre class="prettyprint source linenums"><code>"use strict";
 
-class Advice {
+const Advice = require("./Advice");
+
+class FriendWeek {
   /**
-   * Represents an Advice.
-   * @param {AdviceData} adviceData
+   * @param {FriendWeekData} friendWeekData - Week data of a friend.
    */
-  constructor(adviceData) {
+  constructor(friendWeekData) {
     /**
-     * A boolean indicating if you should sell or hold.
-     * @type {boolean}
+     * The id of the friend.
+     * @type {number}
      */
-    this.sell = adviceData.sell;
+    this.id = friendWeekData.id;
 
     /**
-     * Isabelle's friendly advice for your current situation.
+     * The username of the friend.
      * @type {string}
      */
-    this.advice = adviceData.advice;
+    this.username = friendWeekData.username;
 
     /**
-     * The projected forecasts for your stalk market.
-     * @type {PredictionData}
+     * A list of prices for each slot.
+     * null values can be used for missing prices.
+     * @type {number[]}
      */
-    this.prediction = adviceData.prediction;
+    this.prices = friendWeekData.prices;
 
     /**
-     * A dictionary consisting of price/odds mappings. Each key corresponds to a
-     * possible price, and the value is the likelihood that you'll hit that price.
-     * @type {Object&lt;string, number>}
+     * Contains all of your predictions and suggestions for the week,
+     * based on what you've entered.
+     * @type {Advice}
+     * @readonly
      */
-    this.odds = adviceData.odds;
+    this.advice = new Advice({
+      sell: friendWeekData.advice.sell,
+      advice: friendWeekData.advice.advice,
+      prediction: friendWeekData.advice.prediction,
+      odds: friendWeekData.advice.odds
+    })
   }
 }
 
-module.exports = Advice;</code></pre>
+module.exports = FriendWeek;</code></pre>
         </article>
     </section>
 
