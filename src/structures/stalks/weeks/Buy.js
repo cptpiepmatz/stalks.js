@@ -32,4 +32,4 @@ class Buy {
   }
 }
 
-module.exports = Buy;
+export default Buy;

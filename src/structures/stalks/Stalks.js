@@ -1,8 +1,6 @@
 "use strict";
 
-const fetch = require("node-fetch");
-
-const Week = require("./weeks/Week");
+import Week from "./weeks/Week.js";
 
 class Stalks {
   /**
@@ -56,11 +54,11 @@ class Stalks {
       + sundayDate.toISOString().substr(0, 10);
     let authHeader = this.getAuthHeader();
     return fetch(url, {
-      method: "get",
+      method: "GET",
       headers: authHeader
     }).then(res => {
       if (res.status === 404 && createNew) return this.createWeek(sundayDate);
-      return res.json()
+      return res.json();
     })
       .then(json => {
         return new Week({
@@ -99,11 +97,10 @@ class Stalks {
     });
     let header = Object.assign(this.getAuthHeader(), { "Content-Type": "application/json"});
     return fetch(this.getWeeksEndpoint(), {
-      method: "post",
+      method: "POST",
       headers: header,
       body: JSON.stringify(week)
     }).then(res => {
-      console.log(res);
       return res.json()
     })
   }
@@ -116,11 +113,10 @@ class Stalks {
   updateWeek(week) {
     let header = Object.assign(this.getAuthHeader(), { "Content-Type": "application/json"});
     return fetch(this.getWeeksEndpoint() + week.id, {
-      method: "put",
+      method: "PUT",
       headers: header,
       body: JSON.stringify(week)
     }).then(res => {
-      console.log(res);
       return res.json();
     })
   }
@@ -141,4 +137,4 @@ class Stalks {
   }
 }
 
-module.exports = Stalks;
+export default Stalks;

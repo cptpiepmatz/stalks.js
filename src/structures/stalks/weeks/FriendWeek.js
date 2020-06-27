@@ -1,6 +1,6 @@
 "use strict";
 
-const Advice = require("./Advice");
+import Advice from "./Advice.js";
 
 class FriendWeek {
   /**
@@ -41,4 +41,4 @@ class FriendWeek {
   }
 }
 
-module.exports = FriendWeek;
+export default FriendWeek;

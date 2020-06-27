@@ -1,6 +1,6 @@
 "use strict";
 
-const Stalks = require("./stalks/Stalks");
+import Stalks from "./stalks/Stalks.js";
 
 class StalksClient {
   /**
@@ -22,4 +22,4 @@ class StalksClient {
   }
 }
 
-module.exports = StalksClient;
+export default StalksClient;

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: structures/stalks/weeks/PredictionData.jsdoc</title>
+    <title>JSDoc: Source: structures/stalks/profile/ProfileData.jsdoc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: structures/stalks/weeks/PredictionData.jsdoc</h1>
+    <h1 class="page-title">Source: structures/stalks/profile/ProfileData.jsdoc</h1>
 
     
 
@@ -27,14 +27,25 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @typedef {Object} PredictionData
- * The dictionaries contain the detected patterns, along with the price ranges
- * that each pattern could hit in each slot. The range is defined as a list
- * of tow prices, where the first is the lowest possible, and the second is the
- * highest possible.
+ * @typedef {Object} ProfileData
  *
- * @property {Object.&lt;Object.&lt;Array.&lt;Array.&lt;number,number>>>>} possible
- * @property {Object.&lt;Object.&lt;Array.&lt;Array.&lt;number,number>>>>} likely
+ * @property {number} id
+ * The ID of a user.
+ *
+ * @property {string} username
+ * The username of a user.
+ *
+ * @property {?string} villager_name
+ * The villager name the user entered in his passport.
+ *
+ * @property {?string} town_name
+ * The town name the user entered in his passport.
+ *
+ * @property {?number} patron_level
+ * The patron level a user has.
+ *
+ * @property {WeekData[]} weeks
+ * The weeks of a user.
  */</code></pre>
         </article>
     </section>

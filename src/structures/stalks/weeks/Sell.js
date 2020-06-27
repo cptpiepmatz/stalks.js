@@ -26,4 +26,4 @@ class Sell {
   }
 }
 
-module.exports = Sell;
+export default Sell;

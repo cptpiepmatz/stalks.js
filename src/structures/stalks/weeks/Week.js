@@ -1,13 +1,14 @@
 "use strict";
 
-const Buy = require("./Buy");
-const Sell = require("./Sell");
-const Advice = require("./Advice");
-const FriendWeek = require("./FriendWeek");
-const isDefined = require("../../../util/isDefined");
+import Buy from "./Buy.js";
+import Sell from "./Sell.js";
+import Advice from "./Advice.js";
+import FriendWeek from "./FriendWeek.js";
+import isDefined from "../../../util/isDefined.js";
 
 class Week {
   /**
+   * Represents a week.
    * @param {WeekData} weekData - The data for the week.
    * @param {DateResolvable} weekData.date - Use any DateResolvable for this.
    */
@@ -48,19 +49,18 @@ class Week {
      */
     this.buyLocalFirstTime = weekData.buy_local_first_time;
 
-    let sells = [];
+    /**
+     * Just like buys, this is a list because you can track multiple sales.
+     * @type {Sell[]}
+     */
+    this.sells = [];
     for (let sellData of weekData.sells) {
-      sells.push(new Sell({
+      this.sells.push(new Sell({
         price: sellData.price,
         quantity: sellData.quantity,
         slots: sellData.slots
       }));
     }
-    /**
-     * Just like buys, this is a list because you can track multiple sales.
-     * @type {Sell[]}
-     */
-    this.sells = sells;
 
     /**
      * The price Daisy Mae was selling turnips for on your specific island,
@@ -119,15 +119,14 @@ class Week {
     }
 
     if (isDefined(weekData.friend_weeks)) {
-      let friendWeeks = [];
-      for (let friendWeekData of weekData.friend_weeks) {
-        friendWeeks.push(new FriendWeek(friendWeekData));
-      }
       /**
        * A list of all your friends that have entered data for the corresponding week.
        * @type {FriendWeek[]}
        */
-      this.friendWeeks = friendWeeks;
+      this.friendWeeks = [];
+      for (let friendWeekData of weekData.friend_weeks) {
+        this.friendWeeks.push(new FriendWeek(friendWeekData));
+      }
     }
 
     if (isDefined(weekData.version)) {
@@ -223,4 +222,4 @@ class Week {
   }
 }
 
-module.exports = Week;
+export default Week;

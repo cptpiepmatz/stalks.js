@@ -1,0 +1,21 @@
+/**
+ * @typedef {Object} ProfileData
+ *
+ * @property {number} id
+ * The ID of a user.
+ *
+ * @property {string} username
+ * The username of a user.
+ *
+ * @property {?string} villager_name
+ * The villager name the user entered in his passport.
+ *
+ * @property {?string} town_name
+ * The town name the user entered in his passport.
+ *
+ * @property {?number} patron_level
+ * The patron level a user has.
+ *
+ * @property {WeekData[]} weeks
+ * The weeks of a user.
+ */

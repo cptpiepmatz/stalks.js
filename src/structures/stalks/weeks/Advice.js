@@ -1,7 +1,5 @@
 "use strict";
 
-const isDefined = require("../../../util/isDefined");
-
 class Advice {
   /**
    * Represents an Advice.
@@ -35,4 +33,4 @@ class Advice {
   }
 }
 
-module.exports = Advice;
+export default Advice;

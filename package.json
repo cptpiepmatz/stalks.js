@@ -2,7 +2,7 @@
   "name": "stalks.js",
   "version": "0.1.0",
   "description": "Library to access data from stalks.io",
-  "main": "src/app.js",
+  "main": "src/node-app.js",
   "scripts": {
     "test": "node .",
     "generate-docs": "jsdoc -c jsdoc.json --verbose"
@@ -30,5 +30,6 @@
   "homepage": "https://github.com/derPiepmatz/stalks.js#readme",
   "dependencies": {
     "node-fetch": "^2.6.0"
-  }
+  },
+  "type": "module"
 }
