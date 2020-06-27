@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Sell</title>
+    <title>JSDoc: Class: StalksHTTPError</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Sell</h1>
+    <h1 class="page-title">Class: StalksHTTPError</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Sell<span class="signature">(sellData)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>StalksHTTPError<span class="signature">(code, method, path)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,7 +41,7 @@
     
 
     
-    <h4 class="name" id="Sell"><span class="type-signature"></span>new Sell<span class="signature">(sellData)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="StalksHTTPError"><span class="type-signature"></span>new StalksHTTPError<span class="signature">(code, method, path)</span><span class="type-signature"></span></h4>
     
 
     
@@ -49,7 +49,7 @@
 
 
 <div class="description">
-    Represents a Sell.
+    The error that can occur on connecting to the stalks server.
 </div>
 
 
@@ -85,13 +85,13 @@
 
         <tr>
             
-                <td class="name"><code>sellData</code></td>
+                <td class="name"><code>code</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#SellData">SellData</a></span>
+<span class="param-type">number</span>
 
 
             
@@ -101,7 +101,53 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">The HTTP error code.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>method</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The HTTP method use for the request.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The request path.</td>
         </tr>
 
     
@@ -142,7 +188,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="structures_stalks_weeks_Sell.js.html">structures/stalks/weeks/Sell.js</a>, <a href="structures_stalks_weeks_Sell.js.html#line8">line 8</a>
+        <a href="structures_StalksHTTPError.js.html">structures/StalksHTTPError.js</a>, <a href="structures_StalksHTTPError.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -192,26 +238,16 @@
 
         
             
-<h4 class="name" id="price"><span class="type-signature"></span>price<span class="type-signature"> :number</span></h4>
+<h4 class="name" id="message"><span class="type-signature"></span>message<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    Sell price of the turnips.
+    Returns a small description of the error.
 </div>
 
 
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">number</span>
-
-
-        </li>
-    </ul>
 
 
 
@@ -246,7 +282,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="structures_stalks_weeks_Sell.js.html">structures/stalks/weeks/Sell.js</a>, <a href="structures_stalks_weeks_Sell.js.html#line13">line 13</a>
+        <a href="structures_StalksHTTPError.js.html">structures/StalksHTTPError.js</a>, <a href="structures_StalksHTTPError.js.html#line43">line 43</a>
     </li></ul></dd>
     
 
@@ -264,26 +300,16 @@
 
         
             
-<h4 class="name" id="quantity"><span class="type-signature"></span>quantity<span class="type-signature"> :number</span></h4>
+<h4 class="name" id="name"><span class="type-signature"></span>name<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    Number of turnips sold.
+    Returns the status name.
 </div>
 
 
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">number</span>
-
-
-        </li>
-    </ul>
 
 
 
@@ -318,79 +344,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="structures_stalks_weeks_Sell.js.html">structures/stalks/weeks/Sell.js</a>, <a href="structures_stalks_weeks_Sell.js.html#line19">line 19</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="slots"><span class="type-signature"></span>slots<span class="type-signature"> :number</span></h4>
-
-
-
-
-<div class="description">
-    The number of slots that were filled when the sale was made.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">number</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="structures_stalks_weeks_Sell.js.html">structures/stalks/weeks/Sell.js</a>, <a href="structures_stalks_weeks_Sell.js.html#line25">line 25</a>
+        <a href="structures_StalksHTTPError.js.html">structures/StalksHTTPError.js</a>, <a href="structures_StalksHTTPError.js.html#line22">line 22</a>
     </li></ul></dd>
     
 

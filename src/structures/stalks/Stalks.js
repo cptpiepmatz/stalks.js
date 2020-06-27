@@ -1,6 +1,7 @@
 "use strict";
 
 import Week from "./weeks/Week.js";
+import StalksHTTPError from "../StalksHTTPError.js";
 
 class Stalks {
   /**
@@ -45,46 +46,50 @@ class Stalks {
    * @param {DateResolvable} [date=new Date()] - A date in the week.
    * @param {boolean} [createNew=false] - Create a new one if it does not exist.
    * @returns {Promise<Week>}
+   * @throws {StalksHTTPError}
    */
-  fetchWeek(date, createNew = false) {
+  async fetchWeek(date, createNew = false) {
     if (typeof date === "undefined") date = new Date();
     let sundayDate = Week.getDateSunday(date);
     let url = this.getWeeksEndpoint()
       + "by_date/?date="
       + sundayDate.toISOString().substr(0, 10);
     let authHeader = this.getAuthHeader();
-    return fetch(url, {
+    let res = await fetch(url, {
       method: "GET",
       headers: authHeader
-    }).then(res => {
-      if (res.status === 404 && createNew) return this.createWeek(sundayDate);
-      return res.json();
-    })
-      .then(json => {
-        return new Week({
-          id: json.id,
-          date: json.date,
-          buys: json.buys,
-          buy_local_first_time: json.buy_local_first_time,
-          sells: json.sells,
-          local_price: json.local_price,
-          prices: json.prices,
-          manual_previous_pattern: json.manual_previous_pattern,
-          previous_pattern: json.previous_pattern,
-          profit: json.profit,
-          advice: json.advice,
-          friend_weeks: json.friend_weeks,
-          version: json.version
-        })
-      })
+    });
+    if (res.status === 404 && createNew) {
+      return this.createWeek(sundayDate);
+    }
+    if (!res.ok) {
+      throw new StalksHTTPError(res.status, "GET", url);
+    }
+    let json = await res.json();
+    return new Week({
+      id: json.id,
+      date: json.date,
+      buys: json.buys,
+      buy_local_first_time: json.buy_local_first_time,
+      sells: json.sells,
+      local_price: json.local_price,
+      prices: json.prices,
+      manual_previous_pattern: json.manual_previous_pattern,
+      previous_pattern: json.previous_pattern,
+      profit: json.profit,
+      advice: json.advice,
+      friend_weeks: json.friend_weeks,
+      version: json.version
+    });
   }
 
   /**
    * Creates a Week for this week or a specific one.
    * @param {DateResolvable} [date=new Date()] - A date in the week.
    * @returns {Promise<Week>}
+   * @throws {StalksHTTPError}
    */
-  createWeek(date) {
+  async createWeek(date) {
     if (typeof date === "undefined") date = new Date();
     let sundayDate = Week.getDateSunday(date);
     let week = new Week({
@@ -96,29 +101,34 @@ class Stalks {
       sells: []
     });
     let header = Object.assign(this.getAuthHeader(), { "Content-Type": "application/json"});
-    return fetch(this.getWeeksEndpoint(), {
+    let res = await fetch(this.getWeeksEndpoint(), {
       method: "POST",
       headers: header,
       body: JSON.stringify(week)
-    }).then(res => {
-      return res.json()
-    })
+    });
+    if (!res.ok) {
+      throw new StalksHTTPError(res.status, "POST", this.getWeeksEndpoint());
+    }
+    return await res.json();
   }
 
   /**
    * Updates a given week.
    * @param {Week} week - Week to update current week with.
    * @returns {Promise<Week>}
+   * @throws {StalksHTTPError}
    */
-  updateWeek(week) {
+  async updateWeek(week) {
     let header = Object.assign(this.getAuthHeader(), { "Content-Type": "application/json"});
-    return fetch(this.getWeeksEndpoint() + week.id, {
+    let res = fetch(this.getWeeksEndpoint() + week.id, {
       method: "PUT",
       headers: header,
       body: JSON.stringify(week)
-    }).then(res => {
-      return res.json();
-    })
+    });
+    if (!res.ok) {
+      throw new StalksHTTPError(res.status, "PUT", this.getWeeksEndpoint() + week.id);
+    }
+    return await res.json();
   }
 
   /**
@@ -126,6 +136,7 @@ class Stalks {
    * @param {Week|DateResolvable} [weekOrDate=new Date()] - A date in the week or the Week itself.
    * @param {boolean} [createNew=false] - Create a new one if it does not exist. (Only works with Date)
    * @returns {Promise<Week>}
+   * @throws {StalksHTTPError}
    */
   async resetWeekPrices(weekOrDate, createNew = false) {
     if (!(weekOrDate instanceof Week)) {

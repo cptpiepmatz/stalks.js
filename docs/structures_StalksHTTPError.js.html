@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: structures/stalks/weeks/FriendWeek.js</title>
+    <title>JSDoc: Source: structures/StalksHTTPError.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: structures/stalks/weeks/FriendWeek.js</h1>
+    <h1 class="page-title">Source: structures/StalksHTTPError.js</h1>
 
     
 
@@ -28,48 +28,65 @@
         <article>
             <pre class="prettyprint source linenums"><code>"use strict";
 
-import Advice from "./Advice.js";
+class StalksHTTPError extends Error {
 
-class FriendWeek {
   /**
-   * @param {FriendWeekData} friendWeekData - Week data of a friend.
+   * The error that can occur on connecting to the stalks server.
+   * @param {number} code - The HTTP error code.
+   * @param {string} method - The HTTP method use for the request.
+   * @param {string} path - The request path.
    */
-  constructor(friendWeekData) {
-    /**
-     * The id of the friend.
-     * @type {number}
-     */
-    this.id = friendWeekData.id;
+  constructor(code, method, path) {
+    super();
+    this.code = code;
+    this.method = method;
+    this.path = path;
+  }
 
-    /**
-     * The username of the friend.
-     * @type {string}
-     */
-    this.username = friendWeekData.username;
+  /**
+   * Returns the status name.
+   * @returns {string|null}
+   */
+  get name() {
+    switch (this.code) {
+      case 400:
+        return "Bad Request";
+      case 403:
+        return "Forbidden";
+      case 404:
+        return "Not Found";
+      case 429:
+        return "Too Many Requests";
+      case 418:
+        return "I'm a teapot";
+      default:
+        return null;
+    }
+  }
 
-    /**
-     * A list of prices for each slot.
-     * null values can be used for missing prices.
-     * @type {number[]}
-     */
-    this.prices = friendWeekData.prices;
-
-    /**
-     * Contains all of your predictions and suggestions for the week,
-     * based on what you've entered.
-     * @type {Advice}
-     * @readonly
-     */
-    this.advice = new Advice({
-      sell: friendWeekData.advice.sell,
-      advice: friendWeekData.advice.advice,
-      prediction: friendWeekData.advice.prediction,
-      odds: friendWeekData.advice.odds
-    })
+  /**
+   * Returns a small description of the error.
+   * @returns {string}
+   */
+  get message() {
+    switch (this.code) {
+      case 400:
+        return "Invalid Request. Unexpected or missing data."
+      case 403:
+        return "Incorrect Authorization Token."
+      case 404:
+        return "Element does not exist.";
+      case 429:
+        return "You're too fast.";
+      case 418:
+        return "The server is running a newer version."
+      default:
+        return "";
+    }
   }
 }
 
-export default FriendWeek;</code></pre>
+export default StalksHTTPError;</code></pre>
         </article>
     </section>
 
