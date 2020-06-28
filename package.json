@@ -1,8 +1,9 @@
 {
   "name": "stalks.js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Library to access data from stalks.io",
   "main": "./src/index.js",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "exports": {
     "node": "./src/index.node.js",
     "default": "./src/index.js"
