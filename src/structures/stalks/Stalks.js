@@ -1,6 +1,7 @@
 "use strict";
 
 import Week from "./weeks/Week.js";
+import Profile from "../accounts/profile/Profile.js";
 import StalksHTTPError from "../StalksHTTPError.js";
 
 class Stalks {
@@ -42,6 +43,15 @@ class Stalks {
   }
 
   /**
+   * Get endpoint to fetch user profiles.
+   * @returns {string}
+   * @private
+   */
+  getProfileEndpoint() {
+    return this._endpoint + "profile/";
+  }
+
+  /**
    * Fetches the current or a specific Week.
    * @param {DateResolvable} [date=new Date()] - A date in the week.
    * @param {boolean} [createNew=false] - Create a new one if it does not exist.
@@ -63,7 +73,12 @@ class Stalks {
       return this.createWeek(sundayDate);
     }
     if (!res.ok) {
-      throw new StalksHTTPError(res.status, "GET", url);
+      throw new StalksHTTPError(
+        res.status,
+        "GET",
+        url,
+        res
+      );
     }
     let json = await res.json();
     return new Week({
@@ -107,7 +122,12 @@ class Stalks {
       body: JSON.stringify(week)
     });
     if (!res.ok) {
-      throw new StalksHTTPError(res.status, "POST", this.getWeeksEndpoint());
+      throw new StalksHTTPError(
+        res.status,
+        "POST",
+        this.getWeeksEndpoint(),
+        res
+      );
     }
     return await res.json();
   }
@@ -120,13 +140,18 @@ class Stalks {
    */
   async updateWeek(week) {
     let header = Object.assign(this.getAuthHeader(), { "Content-Type": "application/json"});
-    let res = fetch(this.getWeeksEndpoint() + week.id, {
+    let res = await fetch(this.getWeeksEndpoint() + week.id, {
       method: "PUT",
       headers: header,
       body: JSON.stringify(week)
     });
     if (!res.ok) {
-      throw new StalksHTTPError(res.status, "PUT", this.getWeeksEndpoint() + week.id);
+      throw new StalksHTTPError(
+        res.status,
+        "PUT",
+        this.getWeeksEndpoint() + week.id,
+        res
+      );
     }
     return await res.json();
   }
@@ -145,6 +170,30 @@ class Stalks {
     // at this point weekOrDate is a Week
     weekOrDate.prices = [];
     return this.updateWeek(weekOrDate);
+  }
+
+  /**
+   * Fetches a user profile via username.
+   * Useful if you don't have the user as a friend.
+   * @param {string} username
+   */
+  async fetchUserProfile(username) {
+    let header = this.getAuthHeader();
+    let url = this.getProfileEndpoint() + username + "/";
+    let res = await fetch(url, {
+      method: "GET",
+      headers: header
+    });
+    if (!res.ok) {
+      throw new StalksHTTPError(
+        res.status,
+        "PUT",
+        url,
+        res
+      );
+    }
+    let json = await res.json();
+    return new Profile(json);
   }
 }
 

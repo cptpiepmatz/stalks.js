@@ -42,12 +42,14 @@ class Week {
      */
     this.buys = buys;
 
-    /**
-     * Whether or not this is the first
-     * that turnips have been bought from your island.
-     * @type {boolean}
-     */
-    this.buyLocalFirstTime = weekData.buy_local_first_time;
+    if (isDefined(weekData.buy_local_first_time)) {
+      /**
+       * Whether or not this is the first
+       * that turnips have been bought from your island.
+       * @type {boolean}
+       */
+      this.buyLocalFirstTime = weekData.buy_local_first_time;
+    }
 
     /**
      * Just like buys, this is a list because you can track multiple sales.

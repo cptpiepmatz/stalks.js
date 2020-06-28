@@ -7,12 +7,14 @@ class StalksHTTPError extends Error {
    * @param {number} code - The HTTP error code.
    * @param {string} method - The HTTP method use for the request.
    * @param {string} path - The request path.
+   * @param {Response} response - The fetch response.
    */
-  constructor(code, method, path) {
+  constructor(code, method, path, response) {
     super();
     this.code = code;
     this.method = method;
     this.path = path;
+    this.response = response
   }
 
   /**
@@ -55,6 +57,14 @@ class StalksHTTPError extends Error {
       default:
         return "";
     }
+  }
+
+  /**
+   * Returns the body of the response.
+   * @returns {Promise<Object>}
+   */
+  async getBody() {
+    return this.response.json();
   }
 }
 

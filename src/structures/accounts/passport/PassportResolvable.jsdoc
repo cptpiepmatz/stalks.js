@@ -1,0 +1,4 @@
+/**
+ * A passport that can be either a passport object or just some passport data.
+ * @typedef {Passport|PassportData} PassportResolvable
+ */

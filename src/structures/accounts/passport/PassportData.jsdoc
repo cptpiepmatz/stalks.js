@@ -1,0 +1,22 @@
+/**
+ * @typedef {Object} PassportData
+ *
+ * @property {string} [username]
+ * The username of a user.
+ *
+ * @property {string} [villager_name]
+ * The villager name of a user.
+ *
+ * @property {string} [town_name]
+ * The town/island name of a user.
+ *
+ * @property {string} [friend_code]
+ * The friend code of a user.
+ * Format: SW-1234-5678-0910
+ *
+ * @property {boolean} [bought_local]
+ * Whether your island has ever had turnips bought from it.
+ *
+ * @property {boolean} [patron_lowkey]
+ * Whether to hide you from the patrons page.
+ */

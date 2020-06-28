@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: structures/stalks/weeks/Advice.js</title>
+    <title>JSDoc: Source: structures/accounts/profile/Profile.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: structures/stalks/weeks/Advice.js</h1>
+    <h1 class="page-title">Source: structures/accounts/profile/Profile.js</h1>
 
     
 
@@ -28,40 +28,60 @@
         <article>
             <pre class="prettyprint source linenums"><code>"use strict";
 
-class Advice {
+import Week from "../../stalks/weeks/Week.js";
+import isDefined from "../../../util/isDefined.js";
+
+class Profile {
   /**
-   * Represents an Advice.
-   * @param {AdviceData} adviceData
+   * Represents a user profile.
+   * @param {ProfileData} profileData - The data for the week.
    */
-  constructor(adviceData) {
+  constructor(profileData) {
     /**
-     * A boolean indicating if you should sell or hold.
-     * @type {boolean}
+     * The profile id of a user.
+     * @type {number}
      */
-    this.sell = adviceData.sell;
+    this.id = profileData.id;
 
     /**
-     * Isabelle's friendly advice for your current situation.
+     * The username of a user.
      * @type {string}
      */
-    this.advice = adviceData.advice;
+    this.username = profileData.username;
 
     /**
-     * The projected forecasts for your stalk market.
-     * @type {PredictionData}
+     * The villager name the user entered in his passport.
+     * @type {?string}
      */
-    this.prediction = adviceData.prediction;
+    this.villagerName = profileData.villager_name;
 
     /**
-     * A dictionary consisting of price/odds mappings. Each key corresponds to a
-     * possible price, and the value is the likelihood that you'll hit that price.
-     * @type {Object&lt;string, number>}
+     * The town name the user entered in his passport.
+     * @type {?string}
      */
-    this.odds = adviceData.odds;
+    this.townName = profileData.town_name;
+
+    /**
+     * The patron level a user has.
+     * @type {?number}
+     */
+    this.patronLevel = profileData.patron_level;
+
+    if (isDefined(profileData.weeks)) {
+      /**
+       * The weeks of a user.
+       * (not available via Accounts.fetchFriends)
+       * @type {Week[]}
+       */
+      this.weeks = [];
+      for (let weekData of profileData.weeks) {
+        this.weeks.push(new Week(weekData));
+      }
+    }
   }
 }
 
-export default Advice;</code></pre>
+export default Profile;</code></pre>
         </article>
     </section>
 

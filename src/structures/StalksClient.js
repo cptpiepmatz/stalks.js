@@ -1,6 +1,7 @@
 "use strict";
 
 import Stalks from "./stalks/Stalks.js";
+import Accounts from "./accounts/Accounts.js";
 
 class StalksClient {
   /**
@@ -19,6 +20,12 @@ class StalksClient {
      * @type {Stalks}
      */
     this.stalks = new Stalks(token);
+
+    /**
+     * Access to the Accounts part of the API.
+     * @type {Accounts}
+     */
+    this.accounts = new Accounts(token);
   }
 }
 

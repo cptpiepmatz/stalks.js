@@ -1,0 +1,4 @@
+/**
+ * A profile that can be either an id, a username or a Profile.
+ * @typedef {string|Profile} ProfileResolvable
+ */
