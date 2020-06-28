@@ -8,7 +8,6 @@
     "default": "./src/index.js"
   },
   "scripts": {
-    "test": "node ./src/node-app.js",
     "generate-docs": "jsdoc -c jsdoc.json --verbose",
     "generate-declarations": "npx tsc && npx replace-in-file --configFile=replace-config.cjs --quiet"
   },
