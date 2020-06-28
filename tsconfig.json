@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "./typings",
+    "declaration": true,
+    "allowJs": true,
+    "removeComments": true
+  },
+  "include": [
+    "src/structures/**/*"
+  ]
+}

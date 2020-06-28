@@ -2,10 +2,15 @@
   "name": "stalks.js",
   "version": "0.1.0",
   "description": "Library to access data from stalks.io",
-  "main": "src/node-app.js",
+  "main": "./src/index.js",
+  "exports": {
+    "node": "./src/index.node.js",
+    "default": "./src/index.js"
+  },
   "scripts": {
-    "test": "node .",
-    "generate-docs": "jsdoc -c jsdoc.json --verbose"
+    "test": "node ./src/node-app.js",
+    "generate-docs": "jsdoc -c jsdoc.json --verbose",
+    "generate-declarations": "npx tsc && npx replace-in-file --configFile=replace-config.cjs --quiet"
   },
   "repository": {
     "type": "git",
@@ -31,5 +36,9 @@
   "dependencies": {
     "node-fetch": "^2.6.0"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "replace-in-file": "^6.1.0",
+    "typescript": "^3.9.5"
+  }
 }
