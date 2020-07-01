@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: structures/stalks/weeks/BuyData.jsdoc</title>
+    <title>JSDoc: Source: structures/stalks/weeks/Prediction.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: structures/stalks/weeks/BuyData.jsdoc</h1>
+    <h1 class="page-title">Source: structures/stalks/weeks/Prediction.js</h1>
 
     
 
@@ -26,21 +26,27 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @typedef {Object} BuyData
- *
- * @property {boolean} local
- * Indicating whether the turnips were purchased locally.
- *
- * @property {string} [label]
- * String to mark where the turnips were purchased from.
- *
- * @property {number} price
- * Buy price of the turnips (between 90 and 110, inclusive).
- *
- * @property {number} quantity
- * The number of turnips purchased.
- */</code></pre>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+class Prediction {
+  /**
+   * Represents a prediction in an advice.
+   * @param {PredictionData} predictionData
+   */
+  constructor(predictionData) {
+    /**
+     * @type {Object&lt;Object&lt;Array&lt;Array&lt;number, number>>>>}
+     */
+    this.possible = predictionData.possible;
+
+    /**
+     * @type {Object&lt;Object&lt;Array&lt;Array&lt;number, number>>>>}
+     */
+    this.likely = predictionData.likely;
+  }
+}
+
+export default Prediction;</code></pre>
         </article>
     </section>
 

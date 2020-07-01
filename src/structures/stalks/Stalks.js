@@ -54,11 +54,11 @@ class Stalks {
   /**
    * Fetches the current or a specific Week.
    * @param {DateResolvable} [date=new Date()] - A date in the week.
-   * @param {boolean} [createNew=false] - Create a new one if it does not exist.
+   * @param {boolean} [createNew=true] - Create a new one if it does not exist.
    * @returns {Promise<Week>}
    * @throws {StalksHTTPError}
    */
-  async fetchWeek(date, createNew = false) {
+  async fetchWeek(date, createNew = true) {
     if (typeof date === "undefined") date = new Date();
     let sundayDate = Week.getDateSunday(date);
     let url = this.getWeeksEndpoint()
@@ -159,11 +159,11 @@ class Stalks {
   /**
    * Resets the prices of the current or a specific week.
    * @param {Week|DateResolvable} [weekOrDate=new Date()] - A date in the week or the Week itself.
-   * @param {boolean} [createNew=false] - Create a new one if it does not exist. (Only works with Date)
+   * @param {boolean} [createNew=true] - Create a new one if it does not exist. (Only works with Date)
    * @returns {Promise<Week>}
    * @throws {StalksHTTPError}
    */
-  async resetWeekPrices(weekOrDate, createNew = false) {
+  async resetWeekPrices(weekOrDate, createNew = true) {
     if (!(weekOrDate instanceof Week)) {
       weekOrDate = await this.fetchWeek(weekOrDate, true);
     }

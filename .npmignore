@@ -1,9 +1,8 @@
+.github/
 .idea/
 test/
 docs/
 jsdoc.json
 package-lock.json
-mod.ts
-*.jsdoc
 *.tgz
 replace-config.json

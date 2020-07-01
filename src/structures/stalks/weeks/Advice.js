@@ -1,5 +1,8 @@
 "use strict";
 
+import Prediction from "./Prediction.js";
+import isDefined from "../../../util/isDefined.js";
+
 class Advice {
   /**
    * Represents an Advice.
@@ -18,11 +21,13 @@ class Advice {
      */
     this.advice = adviceData.advice;
 
-    /**
-     * The projected forecasts for your stalk market.
-     * @type {PredictionData}
-     */
-    this.prediction = adviceData.prediction;
+    if (isDefined(adviceData.prediction)) {
+      /**
+       * The projected forecasts for your stalk market.
+       * @type {Prediction}
+       */
+      this.prediction = new Prediction(adviceData.prediction);
+    }
 
     /**
      * A dictionary consisting of price/odds mappings. Each key corresponds to a
