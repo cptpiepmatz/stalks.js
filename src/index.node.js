@@ -4,6 +4,4 @@
 import fetch from "node-fetch";
 global.fetch = fetch;
 
-import StalksClient from "./structures/StalksClient.js";
-
-export default StalksClient;
+export * from "./index.js";
