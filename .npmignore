@@ -3,7 +3,10 @@
 test/
 docs/
 logo/
+examples/
+.env
 docs-style.css
+docs-script.js
 tsconfig.json
 replace-config.cjs
 jsdoc.json

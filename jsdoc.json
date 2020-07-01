@@ -1,7 +1,10 @@
 {
   "source": {
     "includePattern": ".+\\.js(doc|x)?$",
-    "include": ["./src/"],
+    "include": [
+      "./src/",
+      "./examples/"
+    ],
     "exclude": ["node_modules"]
   },
   "recurseDepth": 10,
