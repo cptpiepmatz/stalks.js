@@ -14,6 +14,9 @@
 .top-nav * {
     color: #DDD !important;
 }
+.top-nav .inner {
+    height: calc(75px - 2 * 8px);
+}
 .top-nav .image img {
     height: calc(75px - 2 * 8px);
     width: calc(75px - 2 * 8px);
@@ -32,6 +35,12 @@
 .top-nav .menu .link {
     display: inline-flex !important;
     align-items: center;
+}
+
+@media (max-width: 550px) {
+    .top-nav .menu .link {
+        display: none !important;
+    }
 }
 
 .sidebar, .side-nav {
