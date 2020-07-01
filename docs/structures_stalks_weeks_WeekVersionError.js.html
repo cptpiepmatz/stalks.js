@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>stalks.js Docs - structures/accounts/profile/ProfileResolvable.jsdoc</title>
+  <title>stalks.js Docs - structures/stalks/weeks/WeekVersionError.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -110,7 +110,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>structures/accounts/profile/ProfileResolvable.jsdoc</h1>
+                    <h1>structures/stalks/weeks/WeekVersionError.js</h1>
                 </header>
                 
 
@@ -119,10 +119,50 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * A profile that can be either an id, a username or a Profile.
- * @typedef {string|Profile} ProfileResolvable
- */</code></pre>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+class WeekVersionError extends Error {
+  /**
+   * The error you get if you want to update an outdated week.
+   * @param {Week} week
+   * @param {StalksHTTPError} stalksHTTPError
+   * @param {Stalks} stalks
+   */
+  constructor(week, stalksHTTPError, stalks) {
+    super("Server has newer version of week");
+
+    /**
+     * The outdated week.
+     * @type {Week}
+     */
+    this.week = week;
+
+    /**
+     * The error you got exactly.
+     * @type {StalksHTTPError}
+     */
+    this.stalksHTTPError = stalksHTTPError;
+
+    /**
+     * The stalks object that tried to update the week.
+     * @type {Stalks}
+     */
+    this.stalks = stalks;
+  }
+
+  /**
+   * Forces the update of the outdated week.
+   * @returns {Promise&lt;Week>}
+   * @throws {StalksHTTPError}
+   */
+  async forceWeek() {
+    let week = this.week;
+    week.version = undefined;
+    return await this.stalks.updateWeek(week, true);
+  }
+}
+
+export default WeekVersionError;</code></pre>
         </article>
     </section>
 

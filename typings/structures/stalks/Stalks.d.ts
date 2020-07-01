@@ -9,7 +9,7 @@ declare class Stalks {
     private getProfileEndpoint;
     fetchWeek(date?: any, createNew?: boolean): Promise<Week>;
     createWeek(date?: any): Promise<Week>;
-    updateWeek(week: Week): Promise<Week>;
+    updateWeek(week: Week, force?: boolean): Promise<Week>;
     resetWeekPrices(weekOrDate?: Week | any, createNew?: boolean): Promise<Week>;
     fetchUserProfile(username: string): Promise<Profile>;
 }

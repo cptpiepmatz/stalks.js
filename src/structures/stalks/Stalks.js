@@ -3,6 +3,7 @@
 import Week from "./weeks/Week.js";
 import Profile from "../accounts/profile/Profile.js";
 import StalksHTTPError from "../StalksHTTPError.js";
+import WeekVersionError from "./weeks/WeekVersionError.js";
 
 class Stalks {
   /**
@@ -104,8 +105,7 @@ class Stalks {
    * @returns {Promise<Week>}
    * @throws {StalksHTTPError}
    */
-  async createWeek(date) {
-    if (typeof date === "undefined") date = new Date();
+  async createWeek(date = new Date()) {
     let sundayDate = Week.getDateSunday(date);
     let week = new Week({
       date: sundayDate,
@@ -135,10 +135,16 @@ class Stalks {
   /**
    * Updates a given week.
    * @param {Week} week - Week to update current week with.
+   * @param {boolean} [force=false] - Force the current version, even if it is older.
    * @returns {Promise<Week>}
    * @throws {StalksHTTPError}
+   * @throws {WeekVersionError}
    */
-  async updateWeek(week) {
+  async updateWeek(week, force = false) {
+    if (force) {
+      let currentWeek = await this.fetchWeek(week.date);
+      week.version = currentWeek.version;
+    }
     let header = Object.assign(this.getAuthHeader(), { "Content-Type": "application/json"});
     let res = await fetch(this.getWeeksEndpoint() + week.id, {
       method: "PUT",
@@ -146,12 +152,23 @@ class Stalks {
       body: JSON.stringify(week)
     });
     if (!res.ok) {
-      throw new StalksHTTPError(
+      let stalksHTTPError = new StalksHTTPError(
         res.status,
         "PUT",
         this.getWeeksEndpoint() + week.id,
         res
       );
+      if (res.status === 400) {
+        let errorBody = await res.json();
+        if (errorBody.error === "SERVER_VERSION_NEWER") {
+          throw new WeekVersionError(
+            week,
+            stalksHTTPError,
+            this
+          );
+        }
+      }
+      throw stalksHTTPError;
     }
     return await res.json();
   }
@@ -162,6 +179,7 @@ class Stalks {
    * @param {boolean} [createNew=true] - Create a new one if it does not exist. (Only works with Date)
    * @returns {Promise<Week>}
    * @throws {StalksHTTPError}
+   * @throws {WeekVersionError}
    */
   async resetWeekPrices(weekOrDate, createNew = true) {
     if (!(weekOrDate instanceof Week)) {

@@ -7,5 +7,6 @@ declare class Advice {
     odds: {
         [x: string]: number;
     };
+    toJSON(): any;
 }
 import Prediction from "./Prediction.d.ts";

@@ -36,6 +36,28 @@ class Advice {
      */
     this.odds = adviceData.odds;
   }
+
+  /**
+   * Serializes the Advice to a JSON.
+   * @returns {AdviceData}
+   */
+  toJSON() {
+    let json = {};
+
+    if (isDefined(this.sell)) {
+      json.sell = this.sell;
+    }
+
+    if (isDefined(this.advice)) {
+      json.advice = this.advice;
+    }
+
+    if (isDefined(this.prediction)) {
+      json.prediction = JSON.parse(JSON.stringify(this.prediction));
+    }
+
+    return json;
+  }
 }
 
 export default Advice;

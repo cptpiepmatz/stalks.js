@@ -7,5 +7,6 @@ declare class Profile {
     townName: string | null;
     patronLevel: number | null;
     weeks: Week[];
+    toString(): string;
 }
 import Week from "../../stalks/weeks/Week.d.ts";
