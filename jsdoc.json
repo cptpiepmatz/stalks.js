@@ -7,6 +7,35 @@
   "recurseDepth": 10,
   "opts": {
     "destination": "./docs/",
-    "recurse": true
+    "recurse": true,
+    "template": "node_modules/better-docs",
+    "readme": "README.md"
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "search": false,
+    "default": {
+      "staticFiles": {
+        "include": ["logo/logo no bg white.svg", "docs-style.css"]
+      }
+    },
+    "better-docs": {
+      "name": "stalks.js Documentation",
+      "logo": "logo no bg white.svg",
+      "title": "",
+      "hideGenerator": false,
+      "css": "docs-style.css",
+      "navLinks": [
+        {
+          "label": "Github",
+          "href": "https://github.com/derPiepmatz/stalks.js"
+        },
+        {
+          "label": "stalks.io",
+          "href": "https://stalks.io"
+        }
+      ]
+    }
   }
 }

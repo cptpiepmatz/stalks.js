@@ -1,0 +1,108 @@
+@import "https://jmblog.github.io/color-themes-for-google-code-prettify/themes/atelier-dune-dark.min.css";
+
+::-webkit-scrollbar, ::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.page-title p {
+    display: none !important;
+}
+
+.top-nav {
+    background-color: #151515;
+}
+.top-nav * {
+    color: #DDD !important;
+}
+.top-nav .image img {
+    height: calc(75px - 2 * 8px);
+    width: calc(75px - 2 * 8px);
+}
+.top-nav .logo {
+    display: flex;
+    align-items: center;
+}
+.menu .navigation > a:first-child,
+.menu .navigation .dropdown {
+    display: none !important;
+}
+.top-nav .menu .navigation .link:hover:not(.no-hover) {
+    border-bottom: 2px solid #EEE !important;
+}
+.top-nav .menu .link {
+    display: inline-flex !important;
+    align-items: center;
+}
+
+.sidebar, .side-nav {
+    background-color: #1A1A1A !important;
+}
+.sidebar a:hover, .side-nav a:hover,
+.sidebar a.active, .side-nav a.is-active {
+    color: #0CDD93;
+}
+.sidebar h3, .side-nav h3 {
+    color: #DDD;
+}
+.sidebar a, .side-nav a {
+    color: #999;
+}
+
+.core {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+    .top-nav {
+        box-shadow: 0 0 40px 0 rgba(0,0,0,0.24) !important;
+    }
+
+    .core {
+        background-color: #222;
+    }
+
+    .tag {
+        background-color: #222 !important;
+        color: #EEE !important;
+    }
+
+    .content {
+        background-color: #111 !important;
+        box-shadow: 0 0 40px 0 rgba(0,0,0,0.24) !important;
+        color: #EEE !important;
+    }
+    .content h1, .content h1 *,
+    .content h2, .content h2 *,
+    .content h3, .content h3 *,
+    .content h4, .content h4 *,
+    .content h5, .content h5 *
+    {
+        color: #EEE !important;
+    }
+    .content h4, .content h4 * {
+        color: #0CDD93 !important;
+    }
+    .member:not(:last-child):after {
+        background-color: #222 !important;
+    }
+
+    .button {
+        background-color: #111 !important;
+    }
+
+    table, table *:not(a) {
+        background-color: #151515 !important;
+        border-color: #333 !important;
+        color: #EEE !important;
+    }
+
+    .footer, .footer * {
+        background-color: #111 !important;
+        box-shadow: none !important;
+    }
+}

@@ -8,7 +8,7 @@
     "default": "./src/index.js"
   },
   "scripts": {
-    "generate-docs": "jsdoc -c jsdoc.json --verbose",
+    "generate-docs": "npx jsdoc -c jsdoc.json --verbose",
     "generate-declarations": "npx tsc && npx replace-in-file --configFile=replace-config.cjs --quiet"
   },
   "repository": {
@@ -37,6 +37,8 @@
   },
   "type": "module",
   "devDependencies": {
+    "better-docs": "^2.0.1",
+    "jsdoc": "^3.6.4",
     "replace-in-file": "^6.1.0",
     "typescript": "^3.9.5"
   }

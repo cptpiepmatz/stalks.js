@@ -3,6 +3,9 @@
 test/
 docs/
 logo/
+docs-style.css
+tsconfig.json
+replace-config.cjs
 jsdoc.json
 package-lock.json
 *.tgz
