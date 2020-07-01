@@ -2,6 +2,7 @@
 .idea/
 test/
 docs/
+logo/
 jsdoc.json
 package-lock.json
 *.tgz
