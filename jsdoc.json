@@ -11,19 +11,26 @@
     "template": "node_modules/better-docs",
     "readme": "README.md"
   },
+  "plugins": [
+    "node_modules/better-docs/component"
+  ],
   "templates": {
     "cleverLinks": false,
     "monospaceLinks": false,
     "search": false,
     "default": {
       "staticFiles": {
-        "include": ["logo/logo no bg white.svg", "docs-style.css"]
+        "include": [
+          "logo/logo no bg white.svg",
+          "docs-style.css",
+          "logo/logo.png"
+        ]
       }
     },
     "better-docs": {
       "name": "stalks.js Documentation",
       "logo": "logo no bg white.svg",
-      "title": "",
+      "title": "stalks.js Docs -",
       "hideGenerator": false,
       "css": "docs-style.css",
       "navLinks": [
