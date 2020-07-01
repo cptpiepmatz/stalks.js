@@ -51,6 +51,14 @@ class Profile {
       }
     }
   }
+
+  /**
+   * Return the username of a user.
+   * @returns {string}
+   */
+  toString() {
+    return this.username;
+  }
 }
 
 export default Profile;
