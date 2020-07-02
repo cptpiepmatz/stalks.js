@@ -68,6 +68,16 @@ accounts.fetchCurrentUser()
 ```
 
 
+## Getting an API token
+
+1. Become a patron.
+    1. Go to stalks.io [patron page](https://www.patreon.com/join/stalks?).
+    2. Choose at least "Blathers".
+2. Go to [stalks.io settings](https://stalks.io/settings).
+3. Click on "API Access".
+4. There you go. You have your token. (You may need to regenerate one.)
+
+
 ## Examples
 
-You can find examples [here](https://github.com/derPiepmatz/stalks.js/tree/master/examples);
+You can find examples [here](https://github.com/derPiepmatz/stalks.js/tree/master/examples).
