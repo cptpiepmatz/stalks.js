@@ -1,6 +1,6 @@
 "use strict";
 
-import StalksClient from "../mod.ts"
+import StalksClient from "https://raw.githubusercontent.com/derPiepmatz/stalks.js/master/mod.ts"
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 
 let env = config();
