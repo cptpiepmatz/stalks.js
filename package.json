@@ -1,6 +1,6 @@
 {
   "name": "stalks.js",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "description": "Library to access data from stalks.io",
   "main": "./src/index.js",
   "exports": {
@@ -8,7 +8,7 @@
     "default": "./src/index.js"
   },
   "scripts": {
-    "generate-docs": "npx jsdoc -c jsdoc.json --verbose && npx cpy docs-script.js docs/build/ --rename=entry.js",
+    "generate-docs": "npx jsdoc -c jsdoc.json --verbose && npx cpy docs-script.js docs/build/ --rename=entry.js && npx cpy images/logo.svg docs/images",
     "generate-declarations": "npx tsc && npx replace-in-file --configFile=replace-config.cjs --quiet"
   },
   "repository": {

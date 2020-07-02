@@ -134,7 +134,68 @@
 
 
     <section>
-        <article><p>haha, tolle Readme</p></article>
+        <article><div align="center">
+  <img src="images/logo.svg" width="256"/>
+  <br>
+  <p>A library/module to interact with the <a href="https://stalks.io/">stalks.io</a> API.</p>
+  <a href="https://www.npmjs.com/package/stalks.js">
+    <img alt="npm" src="https://img.shields.io/npm/v/stalks.js?style=for-the-badge&logo=npm">
+  </a>
+  <a href="https://www.github.com/derPiepmat/stalks.js">
+    <img alt="GitHub" src="https://img.shields.io/github/license/derPiepmatz/stalks.js?style=for-the-badge">
+  </a>
+  <a href="https://www.github.com/derPiepmat/stalks.js">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/derPiepmatz/stalks.js/Node.js Package?style=for-the-badge&logo=github">
+  </a>
+</div>
+<hr>
+<h2>What's this?</h2>
+<p>If you play animal crossing, especially the new horizons you may have the seen the character <a href="https://animalcrossing.fandom.com/wiki/Daisy_Mae">Daisy Mae</a>. She sells you turnips which you can later sell. To improve your results you may want to track the prices. That caused the website <a href="https://stalks.io">stalks.io</a>. It allows you to track the prices and show you a predicition.</p>
+<p>If you happen to be patron of this at level 2 you can use the api to interact with the page. This library/module allows you to easily interact with the api via <a href="https://nodejs.org/">node</a> or <a href="https://deno.land">deno</a>.</p>
+<h2>Documentaion</h2>
+<p>You find a full documentation over <a href="https://derPiepmatz.github.io/stalks.js">here</a>.</p>
+<h2>Installation</h2>
+<p>If you want to use node you just need to install it via:</p>
+<pre class="prettyprint source lang-sh"><code>$ npm install stalks.js
+</code></pre>
+<h2>Loading the library/modules</h2>
+<p>For node:</p>
+<pre class="prettyprint source lang-js"><code>import StalksClient from &quot;stalks.js&quot;;
+</code></pre>
+<p>You can't use require. stalks.js is a pure ES Module. You still can use the dynamic <a href="https://nodejs.org/api/esm.html#esm_import_expressions">import()</a>.
+<br>
+<br>
+For deno:</p>
+<pre class="prettyprint source lang-js"><code>import StalksClient from &quot;https://raw.githubusercontent.com/derPiepmatz/stalks.js/master/mod.ts&quot;;
+</code></pre>
+<h2>Usage</h2>
+<p>Some basic usage for this.</p>
+<pre class="prettyprint source lang-js"><code>const client = new StalksClient(YOUR_API_TOKEN);
+const stalks = client.stalks;
+const accounts = client.accounts;
+
+stalks.fetchWeek()
+  .then(console.log)
+  .catch(console.error);
+  
+accounts.fetchCurrentUser()
+  .then(console.log)
+  .catch(console.error);
+</code></pre>
+<h2>Getting an API token</h2>
+<ol>
+<li>Become a patron.
+<ol>
+<li>Go to stalks.io <a href="https://www.patreon.com/join/stalks?">patron page</a>.</li>
+<li>Choose at least &quot;Blathers&quot;.</li>
+</ol>
+</li>
+<li>Go to <a href="https://stalks.io/settings">stalks.io settings</a>.</li>
+<li>Click on &quot;API Access&quot;.</li>
+<li>There you go. You have your token. (You may need to regenerate one.)</li>
+</ol>
+<h2>Examples</h2>
+<p>You can find examples <a href="https://github.com/derPiepmatz/stalks.js/tree/master/examples">here</a>.</p></article>
     </section>
 
 
