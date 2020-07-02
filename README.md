@@ -15,10 +15,59 @@
 
 ---
 
-<!-- TOC -->
-
 ## What's this?
 
 If you play animal crossing, especially the new horizons you may have the seen the character [Daisy Mae](https://animalcrossing.fandom.com/wiki/Daisy_Mae). She sells you turnips which you can later sell. To improve your results you may want to track the prices. That caused the website [stalks.io](https://stalks.io). It allows you to track the prices and show you a predicition.
 
 If you happen to be patron of this at level 2 you can use the api to interact with the page. This library/module allows you to easily interact with the api via [node](https://nodejs.org/) or [deno](https://deno.land).
+
+
+## Documentaion
+
+You find a full documentation over [here](https://derPiepmatz.github.io/stalks.js).
+
+
+## Installation
+
+If you want to use node you just need to install it via:
+```sh
+$ npm install stalks.js
+```
+
+
+## Loading the library/modules
+
+For node:
+```js
+import StalksClient from "stalks.js";
+```
+You can't use require. stalks.js is a pure ES Module. You still can use the dynamic [import()](https://nodejs.org/api/esm.html#esm_import_expressions).
+\
+\
+For deno:
+```js
+import StalksClient from "https://raw.githubusercontent.com/derPiepmatz/stalks.js/master/mod.ts";
+```
+
+
+## Usage
+
+Some basic usage for this.
+```js
+const client = new StalksClient(YOUR_API_TOKEN);
+const stalks = client.stalks;
+const accounts = client.accounts;
+
+stalks.fetchWeek()
+  .then(console.log)
+  .catch(console.error);
+  
+accounts.fetchCurrent()
+  .then(console.log)
+  .catch(console.error);
+```
+
+
+## Examples
+
+You can find examples [here](https://github.com/derPiepmatz/stalks.js/tree/master/examples);
