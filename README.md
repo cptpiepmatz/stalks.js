@@ -62,7 +62,7 @@ stalks.fetchWeek()
   .then(console.log)
   .catch(console.error);
   
-accounts.fetchCurrent()
+accounts.fetchCurrentUser()
   .then(console.log)
   .catch(console.error);
 ```
