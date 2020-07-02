@@ -24,9 +24,9 @@
     "default": {
       "staticFiles": {
         "include": [
-          "logo/logo no bg white.svg",
+          "images/logo no bg white.svg",
           "docs-style.css",
-          "logo/logo.png"
+          "images/logo.png"
         ]
       }
     },
