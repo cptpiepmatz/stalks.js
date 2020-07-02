@@ -42,3 +42,4 @@ class FriendWeek {
 }
 
 export default FriendWeek;
+export { FriendWeek };

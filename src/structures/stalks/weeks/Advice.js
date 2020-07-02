@@ -61,3 +61,4 @@ class Advice {
 }
 
 export default Advice;
+export { Advice };

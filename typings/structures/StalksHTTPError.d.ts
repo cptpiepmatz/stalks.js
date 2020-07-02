@@ -1,5 +1,5 @@
 export default StalksHTTPError;
-declare class StalksHTTPError extends Error {
+export class StalksHTTPError extends Error {
     constructor(code: number, method: string, path: string, response: Response);
     code: number;
     method: string;

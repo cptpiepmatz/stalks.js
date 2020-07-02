@@ -1,2 +1,2 @@
 export default isDefined;
-declare function isDefined(value: any): boolean;
+export function isDefined(value: any): boolean;

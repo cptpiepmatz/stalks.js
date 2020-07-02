@@ -1,5 +1,5 @@
 export default Accounts;
-declare class Accounts {
+export class Accounts {
     constructor(token: string);
     _endpoint: string;
     _token: string;

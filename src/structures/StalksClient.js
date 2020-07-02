@@ -30,3 +30,4 @@ class StalksClient {
 }
 
 export default StalksClient;
+export { StalksClient };

@@ -42,3 +42,4 @@ class WeekVersionError extends Error {
 }
 
 export default WeekVersionError;
+export { WeekVersionError };

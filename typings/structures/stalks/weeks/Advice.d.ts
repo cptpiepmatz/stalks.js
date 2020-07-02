@@ -1,5 +1,5 @@
 export default Advice;
-declare class Advice {
+export class Advice {
     constructor(adviceData: any);
     sell: boolean;
     advice: string;

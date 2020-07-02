@@ -19,3 +19,4 @@ class Prediction {
 }
 
 export default Prediction;
+export { Prediction };

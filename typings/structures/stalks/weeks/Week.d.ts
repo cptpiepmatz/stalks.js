@@ -1,5 +1,5 @@
 export default Week;
-declare class Week {
+export class Week {
     static getDateSunday(date: any): Date;
     constructor(weekData: any);
     id: number;

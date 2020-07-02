@@ -33,3 +33,4 @@ class Buy {
 }
 
 export default Buy;
+export { Buy };

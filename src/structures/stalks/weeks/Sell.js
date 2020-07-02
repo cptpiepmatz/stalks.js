@@ -27,3 +27,4 @@ class Sell {
 }
 
 export default Sell;
+export { Sell };

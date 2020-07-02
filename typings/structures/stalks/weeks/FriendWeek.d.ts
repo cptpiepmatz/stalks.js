@@ -1,5 +1,5 @@
 export default FriendWeek;
-declare class FriendWeek {
+export class FriendWeek {
     constructor(friendWeekData: any);
     id: number;
     username: string;

@@ -1,5 +1,5 @@
 export default Profile;
-declare class Profile {
+export class Profile {
     constructor(profileData: any);
     id: number;
     username: string;

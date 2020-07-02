@@ -216,3 +216,4 @@ class Stalks {
 }
 
 export default Stalks;
+export { Stalks };

@@ -1,5 +1,5 @@
 export default Passport;
-declare class Passport {
+export class Passport {
     constructor(passportData?: any);
     username: string;
     villagerName: string;

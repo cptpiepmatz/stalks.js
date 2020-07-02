@@ -95,3 +95,4 @@ class Passport {
 }
 
 export default Passport;
+export { Passport };

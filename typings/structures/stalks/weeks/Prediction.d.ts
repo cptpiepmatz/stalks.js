@@ -1,5 +1,5 @@
 export default Prediction;
-declare class Prediction {
+export class Prediction {
     constructor(predictionData: any);
     possible: any;
     likely: any;

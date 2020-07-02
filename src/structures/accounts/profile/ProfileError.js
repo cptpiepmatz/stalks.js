@@ -13,3 +13,4 @@ class ProfileError extends Error {
 }
 
 export default ProfileError;
+export { ProfileError };

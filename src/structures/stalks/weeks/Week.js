@@ -225,3 +225,4 @@ class Week {
 }
 
 export default Week;
+export { Week };

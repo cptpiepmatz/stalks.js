@@ -1,5 +1,5 @@
 export default StalksClient;
-declare class StalksClient {
+export class StalksClient {
     constructor(token: string);
     private _token;
     stalks: Stalks;

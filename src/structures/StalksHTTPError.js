@@ -69,3 +69,4 @@ class StalksHTTPError extends Error {
 }
 
 export default StalksHTTPError;
+export { StalksHTTPError };

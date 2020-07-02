@@ -204,3 +204,4 @@ class Accounts {
 }
 
 export default Accounts;
+export { Accounts };

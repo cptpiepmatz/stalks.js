@@ -1,5 +1,5 @@
 export default Stalks;
-declare class Stalks {
+export class Stalks {
     constructor(token: string);
     _endpoint: string;
     _token: string;

@@ -62,3 +62,4 @@ class Profile {
 }
 
 export default Profile;
+export { Profile };
