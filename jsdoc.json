@@ -5,7 +5,10 @@
       "./src/",
       "./examples/"
     ],
-    "exclude": ["node_modules"]
+    "exclude": [
+      "node_modules",
+      "./src/util"
+    ]
   },
   "recurseDepth": 10,
   "opts": {
