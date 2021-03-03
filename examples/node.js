@@ -1,6 +1,6 @@
 "use strict";
 
-import StalksClient from "stalks.js"
+import { StalksClient } from "stalks.js"
 import dotenv from "dotenv";
 dotenv.config();
 
