@@ -6,10 +6,10 @@
     <img alt="npm" src="https://img.shields.io/npm/v/stalks.js?style=for-the-badge&logo=npm">
   </a>
   <a href="https://www.github.com/derPiepmat/stalks.js">
-    <img alt="GitHub" src="https://img.shields.io/github/license/derPiepmatz/stalks.js?style=for-the-badge">
+    <img alt="GitHub" src="https://img.shields.io/github/license/cptpiepmatz/stalks.js?style=for-the-badge">
   </a>
   <a href="https://www.github.com/derPiepmat/stalks.js">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/derPiepmatz/stalks.js/Node.js Package?style=for-the-badge&logo=github">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/cptpiepmatz/stalks.js/Node.js Package?style=for-the-badge&logo=github">
   </a>
 </div>
 
@@ -24,7 +24,7 @@ If you happen to be patron of this at level 2 you can use the api to interact wi
 
 ## Documentaion
 
-You find a full documentation over [here](https://derPiepmatz.github.io/stalks.js).
+You find a full documentation over [here](https://cptpiepmatz.github.io/stalks.js).
 
 
 ## Installation
@@ -46,7 +46,7 @@ You can't use require. stalks.js is a pure ES Module. You still can use the dyna
 \
 For deno:
 ```js
-import StalksClient from "https://raw.githubusercontent.com/derPiepmatz/stalks.js/master/mod.ts";
+import StalksClient from "https://raw.githubusercontent.com/cptpiepmatz/stalks.js/master/mod.ts";
 ```
 
 
@@ -80,4 +80,4 @@ accounts.fetchCurrentUser()
 
 ## Examples
 
-You can find examples [here](https://github.com/derPiepmatz/stalks.js/tree/master/examples).
+You can find examples [here](https://github.com/cptpiepmatz/stalks.js/tree/master/examples).

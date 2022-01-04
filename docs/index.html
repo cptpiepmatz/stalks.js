@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>stalks.js Docs - Home</title>
@@ -22,14 +22,14 @@
   <link type="text/css" rel="stylesheet" href="docs-style.css">
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-  
+
 </head>
 
 
 
 <body class="layout small-header">
     <div id="stickyNavbarOverlay"></div>
-    
+
 
 <div class="top-nav">
     <div class="inner">
@@ -39,19 +39,19 @@
             <span aria-hidden="true"></span>
         </a>
         <div class="logo">
-             
+
                 <a class="image" href="index.html">
                     <img src="logo no bg white.svg" alt="logo">
                 </a>
-            
-             
+
+
                 <a href="index.html">
                     <h1 class="navbar-item">stalks.js Documentation</h1>
                 </a>
-            
+
         </div>
         <div class="menu">
-            
+
             <div class="navigation">
                 <a
                     href="index.html"
@@ -59,25 +59,25 @@
                 >
                     API Documentation
                 </a>
-                
-                 
-                    
+
+
+
                         <a
                             class="link user-link "
-                            href="https://github.com/derPiepmatz/stalks.js"
+                            href="https://github.com/cptpiepmatz/stalks.js"
                         >
                             Github
                         </a>
-                    
+
                         <a
                             class="link user-link "
                             href="https://stalks.io"
                         >
                             stalks.io
                         </a>
-                    
-                
-                
+
+
+
             </div>
         </div>
     </div>
@@ -87,11 +87,11 @@
             class="sidebar "
             id="sidebarNav"
         >
-            
+
             <nav>
-                
+
                     <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="Accounts.html">Accounts</a></li><li><a href="Advice.html">Advice</a></li><li><a href="Buy.html">Buy</a></li><li><a href="FriendWeek.html">FriendWeek</a></li><li><a href="Passport.html">Passport</a></li><li><a href="Prediction.html">Prediction</a></li><li><a href="Profile.html">Profile</a></li><li><a href="Sell.html">Sell</a></li><li><a href="Stalks.html">Stalks</a></li><li><a href="StalksClient.html">StalksClient</a></li><li><a href="StalksHTTPError.html">StalksHTTPError</a></li><li><a href="Week.html">Week</a></li><li><a href="WeekVersionError.html">WeekVersionError</a></li></ul><h3><a href="global.html">Global</a></h3></div>
-                
+
             </nav>
         </div>
         <div class="core" id="main-content-wrapper">
@@ -100,11 +100,11 @@
                     <p></p>
                     <h1>Home</h1>
                 </header>
-                
 
 
 
-    
+
+
 
 
     <h3> </h3>
@@ -118,7 +118,7 @@
 
 
 
-    
+
 
 
 
@@ -132,10 +132,10 @@
     <img alt="npm" src="https://img.shields.io/npm/v/stalks.js?style=for-the-badge&logo=npm">
   </a>
   <a href="https://www.github.com/derPiepmat/stalks.js">
-    <img alt="GitHub" src="https://img.shields.io/github/license/derPiepmatz/stalks.js?style=for-the-badge">
+    <img alt="GitHub" src="https://img.shields.io/github/license/cptpiepmatz/stalks.js?style=for-the-badge">
   </a>
   <a href="https://www.github.com/derPiepmat/stalks.js">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/derPiepmatz/stalks.js/Node.js Package?style=for-the-badge&logo=github">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/cptpiepmatz/stalks.js/Node.js Package?style=for-the-badge&logo=github">
   </a>
 </div>
 <hr>
@@ -143,7 +143,7 @@
 <p>If you play animal crossing, especially the new horizons you may have the seen the character <a href="https://animalcrossing.fandom.com/wiki/Daisy_Mae">Daisy Mae</a>. She sells you turnips which you can later sell. To improve your results you may want to track the prices. That caused the website <a href="https://stalks.io">stalks.io</a>. It allows you to track the prices and show you a predicition.</p>
 <p>If you happen to be patron of this at level 2 you can use the api to interact with the page. This library/module allows you to easily interact with the api via <a href="https://nodejs.org/">node</a> or <a href="https://deno.land">deno</a>.</p>
 <h2>Documentaion</h2>
-<p>You find a full documentation over <a href="https://derPiepmatz.github.io/stalks.js">here</a>.</p>
+<p>You find a full documentation over <a href="https://cptpiepmatz.github.io/stalks.js">here</a>.</p>
 <h2>Installation</h2>
 <p>If you want to use node you just need to install it via:</p>
 <pre class="prettyprint source lang-sh"><code>$ npm install stalks.js
@@ -156,7 +156,7 @@
 <br>
 <br>
 For deno:</p>
-<pre class="prettyprint source lang-js"><code>import StalksClient from &quot;https://raw.githubusercontent.com/derPiepmatz/stalks.js/master/mod.ts&quot;;
+<pre class="prettyprint source lang-js"><code>import StalksClient from &quot;https://raw.githubusercontent.com/cptpiepmatz/stalks.js/master/mod.ts&quot;;
 </code></pre>
 <h2>Usage</h2>
 <p>Some basic usage for this.</p>
@@ -167,7 +167,7 @@ const accounts = client.accounts;
 stalks.fetchWeek()
   .then(console.log)
   .catch(console.error);
-  
+
 accounts.fetchCurrentUser()
   .then(console.log)
   .catch(console.error);
@@ -185,7 +185,7 @@ accounts.fetchCurrentUser()
 <li>There you go. You have your token. (You may need to regenerate one.)</li>
 </ol>
 <h2>Examples</h2>
-<p>You can find examples <a href="https://github.com/derPiepmatz/stalks.js/tree/master/examples">here</a>.</p></article>
+<p>You can find examples <a href="https://github.com/cptpiepmatz/stalks.js/tree/master/examples">here</a>.</p></article>
     </section>
 
 
@@ -194,17 +194,17 @@ accounts.fetchCurrentUser()
 
 
             </div>
-            
+
             <footer class="footer">
                 <div class="content has-text-centered">
                     <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a></p>
                     <p class="sidebar-created-by">
-                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
                         <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
                     </p>
                 </div>
             </footer>
-            
+
         </div>
         <div id="side-nav" class="side-nav">
         </div>
