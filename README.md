@@ -2,16 +2,16 @@
   <img src="images/logo.svg" width="256"/>
   <br>
   <p>A library/module to interact with the <a href="https://stalks.io/">stalks.io</a> API.</p>
-  <a href="https://www.npmjs.com/package/stalks.js">
-    <img alt="npm" src="https://img.shields.io/npm/v/stalks.js?style=for-the-badge&logo=npm">
-  </a>
-  <a href="https://www.github.com/derPiepmat/stalks.js">
-    <img alt="GitHub" src="https://img.shields.io/github/license/cptpiepmatz/stalks.js?style=for-the-badge">
-  </a>
-  <a href="https://www.github.com/derPiepmat/stalks.js">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/cptpiepmatz/stalks.js/Node.js Package?style=for-the-badge&logo=github">
-  </a>
 </div>
+
+<div align="center">
+
+  [![npm](https://img.shields.io/npm/v/stalks.js?style=for-the-badge&logo=npm)](https://www.npmjs.com/package/stalks.js)
+  [![GitHub](https://img.shields.io/github/license/cptpiepmatz/stalks.js?style=for-the-badge)](https://www.github.com/derPiepmat/stalks.js)
+  [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/cptpiepmatz/stalks.js/Node.js%20Package?style=for-the-badge&logo=github)](https://www.github.com/derPiepmat/stalks.js)
+
+</div>
+
 
 ---
 
